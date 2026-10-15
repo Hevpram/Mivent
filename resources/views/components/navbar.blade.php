@@ -1,4 +1,3 @@
-
     <nav class=" flex justify-between px-[99px] py-[12px]">
         <img src="/assets/logo.png" alt="" class=" w-[164px] h-[27px]">
         <div class=" flex gap-10">
