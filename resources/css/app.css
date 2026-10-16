@@ -1,9 +1,61 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-poppins: 'Poppins', sans-serif;
+
+    --color-background : #EAF0F6;
+    --color-primary-200 : #40679F;
+    --color-primary-150 : #7C9CBF;
+    --color-primary-100 : #ABC9E9;
+    --color-primary-50 : #F8FAFC;
+    
+    --color-green-50 : #EBF7EF;
+    --color-green-100 : #86C99A;
+    --color-green-150 : #3D7A52;
+    
+    --color-blue-50 : #EDF4FB;
+    
+    --color-gray-50 : #E4E8EF;
+    --color-gray-100 : #9CA3AF;
+    
+    --color-red-50 : #FCEEEE;
+    --color-red-100 : #A04040;
+
+    --color-yellow-50 : #FDF8E8;
+    --color-yellow-100 : #E8C87A;
+
+}
+
+@utility text-gradient-mivent { /*cara manggil : text-gradient-mivent*/
+    background-image: radial-gradient(
+        ellipse at center,
+        #ABC9E9 0%,
+        #40679F 100%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+@layer components {
+    .navbar_textIn {
+        @apply relative transition-all duration-300 hover:text-primary-200
+            after:content-[''] after:absolute after:left-0 after:-bottom-1
+            after:h-[1.5px] after:w-0 after:bg-primary-200
+            after:transition-all after:duration-300 hover:after:w-full;
+    }
+
+    .navbar_textIn_white {
+        @apply hover:text-white after:bg-white;
+    }
 }
