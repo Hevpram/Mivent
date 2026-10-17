@@ -8,6 +8,7 @@ const logo = document.getElementById('logo');
 window.addEventListener('scroll', ()=> {
     if(window.scrollY > 10) {
         navbar.classList.add('bg-primary-200');
+        navbar.classList.add('rounded-b-4xl');
         navbar.classList.add('shadow-[0px_4px_8px_0px_rgba(64,103,159,0.75)]');
         nav_text.classList.replace('text-black', 'text-white');
         nav_textIn.forEach(function(elemen) {
@@ -25,6 +26,7 @@ window.addEventListener('scroll', ()=> {
 
     } else {
         navbar.classList.remove('bg-primary-200');
+        navbar.classList.remove('rounded-b-4xl');
         navbar.classList.remove('shadow-[0px_4px_8px_0px_rgba(64,103,159,0.75)]');
         nav_text.classList.replace('text-white', 'text-black');
         nav_textIn.forEach(function(elemen) {
