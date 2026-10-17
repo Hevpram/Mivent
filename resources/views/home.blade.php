@@ -1,4 +1,4 @@
-<x-layout title="Beranda">
+<x-ormawa-layout title="Beranda">
     {{-- Ini cara manggilnya, tinggal buat disini aja tanpa head maupun lainnya bole langsung div/section --}}
 
     {{-- cara manggil event card --}}
