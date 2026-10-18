@@ -1,3 +1,9 @@
+import './date-range-calendar';
+import './phone-input';
+import './text-editor';
+import './char-counter';
+import './poster-upload';
+
 const navbar = document.getElementById('navbar');
 const nav_text = document.querySelector('.navbar_text');
 const nav_textIn = document.querySelectorAll('.navbar_textIn');
@@ -43,3 +49,31 @@ window.addEventListener('scroll', ()=> {
         logo.src = '/build/assets/mivent_assets/logoColor.png';
     }
 })
+
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    const btn   = dropdown.querySelector('.dropdown-btn');
+    const label = dropdown.querySelector('.dropdown-label');
+    const arrow = dropdown.querySelector('.dropdown-arrow');
+    const list  = dropdown.querySelector('.dropdown-list');
+
+    btn.addEventListener('click', () => {
+        list.classList.toggle('hidden');
+        arrow.classList.toggle('rotate-180');
+    });
+
+    list.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            label.textContent = radio.nextElementSibling.textContent;
+            label.classList.replace('text-gray-100', 'text-black');
+            list.classList.add('hidden');
+            arrow.classList.remove('rotate-180');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            list.classList.add('hidden');
+            arrow.classList.remove('rotate-180');
+        }
+    });
+});
