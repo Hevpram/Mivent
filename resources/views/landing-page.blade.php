@@ -11,7 +11,7 @@
     <x-navbar/>
     <div class=" flex mr-[90px] ml-[98px] mt-[80px]" >
         <div> 
-            <h1 class="w-[641px] justify-start text-indigo-300 text-6xl font-bold mb-[20px]" >Semua Event dalam Satu Tempat</h1>
+            <h1 class="w-[641px] justify-start text-indigo-300 text-6xl font-bold mb-[20px] text-gradient-mivent" >Semua Event dalam Satu Tempat</h1>
             <p class="self-stretch justify-start text-black text-xl font-normal mb-[20px]">Temukan seminar sains, kompetisi riset, olimpiade matematika, workshop laboratorium, dan kepanitiaan ormawa dengan perolehan poin SKP maksimal.</p>
             <form action="/jelajahi-event.blade.php" class=" justify-start items-center gap-2.5 bg-white rounded-[10px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.75)] inline-flex px-[24.5px] py-2">
                 <div class=" gap-[16px] flex ">
