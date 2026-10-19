@@ -1,8 +1,8 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <header id="navbar"  class="sticky top-0 z-50 transition-all duration-300 font-poppins bg-background">
+    <header id="navbar"  class="sticky top-0 z-50 transition-all duration-300 font-poppins">
         <nav class ="px-[99px] py-3 flex justify-between items-center">
             <div class = "flex gap-3 items-center justify-between">
-                <img id = "logo" src="/build/assets/mivent_assets/logoColor.png"  class="w-[26.3px] h-[23.69px]">
+                <img id = "logo" src="assets/mivent_assets/logoColor.png"  class="w-[26.3px] h-[23.69px]">
                 <h1 class= "logo_text text-gradient-mivent font-bold text-2xl">Mivent</h1>
             </div>
             <div class ="navbar_text font-medium flex gap-10 items-center text-black">
