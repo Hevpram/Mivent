@@ -4,7 +4,7 @@
             <div class ="px-[60px] flex justify-between">
                 <div>
                     <div class = "flex gap-4 mb-3">
-                        <img src="/build/assets/mivent_assets/logoWhite.png" alt="" class ="w-[43.24px] h-[38.39px]">
+                        <img src="assets/mivent_assets/logoWhite.png" alt="" class ="w-[43.24px] h-[38.39px]">
                         <h1 class= "font-bold text-4xl">Mivent</h1> 
                     </div>
                     <p class="text-base font-normal w-[460px] h-[72px]">Mivent adalah platform web untuk mencari, mendaftar, dan mengelola event kemahasiswaan di lingkungan FMIPA Universitas Udayana.</p>

@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-30 flex h-[88px] items-center justify-between gap-6 border-b border-gray-300 bg-white px-8 font-poppins shadow-[0_2px_8px_rgba(64,103,159,0.15)]">
     <div class="flex items-center gap-10">
         <div class="flex items-center gap-2">
-            <img src="build/assets/mivent_assets/logoColor.png" alt="Logo Mivent" class="h-7 w-auto">
+            <img src="mivent_assets/logoColor.png" alt="Logo Mivent" class="h-7 w-auto">
             <span class="text-gradient-mivent text-2xl font-semibold">Mivent</span>
         </div>
 
