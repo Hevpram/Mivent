@@ -9,21 +9,21 @@
 </head>
 <body>
     <x-navbar/>
-    <div class=" flex mr-[90px] ml-[98px] mt-[80px]" >
+    <div class=" flex mr-[90px] ml-[98px] mt-[80px] gap-[80px] mb-[242px]" >
         <div> 
             <h1 class="w-[641px] justify-start text-indigo-300 text-6xl font-bold mb-[20px] text-gradient-mivent" >Semua Event dalam Satu Tempat</h1>
             <p class="self-stretch justify-start text-black text-xl font-normal mb-[20px]">Temukan seminar sains, kompetisi riset, olimpiade matematika, workshop laboratorium, dan kepanitiaan ormawa dengan perolehan poin SKP maksimal.</p>
-            <form action="/jelajahi-event.blade.php" class=" justify-start items-center gap-2.5 bg-white rounded-[10px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.75)] inline-flex px-[24.5px] py-2">
+            <form action=# class=" justify-start items-center gap-2.5 bg-white rounded-[10px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.75)] inline-flex px-[24.5px] py-2">
                 <div class=" gap-[16px] flex ">
                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg" class=" gap-[16px]">
                     <path d="M10.7255 21.4509C7.72783 21.4509 5.19112 20.4125 3.11533 18.3356C1.03955 16.2587 0.00110092 13.722 8.73054e-07 10.7255C-0.00109917 7.72893 1.03735 5.19222 3.11533 3.11533C5.19332 1.03844 7.73003 0 10.7255 0C13.7209 0 16.2582 1.03844 18.3372 3.11533C20.4163 5.19222 21.4542 7.72893 21.4509 10.7255C21.4509 11.9355 21.2584 13.0768 20.8734 14.1494C20.4884 15.2219 19.9659 16.1707 19.3058 16.9957L28.5462 26.2361C28.8487 26.5386 29 26.9237 29 27.3912C29 27.8587 28.8487 28.2437 28.5462 28.5462C28.2437 28.8487 27.8587 29 27.3912 29C26.9237 29 26.5386 28.8487 26.2361 28.5462L16.9957 19.3058C16.1707 19.9659 15.2219 20.4884 14.1494 20.8734C13.0768 21.2584 11.9355 21.4509 10.7255 21.4509ZM10.7255 18.1508C12.7881 18.1508 14.5415 17.4292 15.9859 15.9859C17.4303 14.5426 18.1519 12.7892 18.1508 10.7255C18.1497 8.66177 17.4281 6.90885 15.9859 5.46669C14.5437 4.02452 12.7903 3.30234 10.7255 3.30014C8.66067 3.29794 6.90775 4.02012 5.46669 5.46669C4.02562 6.91325 3.30344 8.66617 3.30014 10.7255C3.29684 12.7848 4.01902 14.5382 5.46669 15.9859C6.91435 17.4336 8.66727 18.1552 10.7255 18.1508Z" fill="#40679F"/>
                     </svg>
             
-                    <input type="text" id="fname" name="fname" value="Cari kepanitiaan, seminar, dll" class=" justify-start text-gray-400 text-sm font-light">
+                    <input type="text" value="Cari kepanitiaan, seminar, dll" class=" justify-start text-gray-400 text-sm font-light ">
                     <p>|</p>
                 </div>
                 <div class=" flex gap-[28px]">
-                    <select name="Kategori" id="">
+                    <select name="Kategori" id="" class=" cursor-pointer">
                         <option value="">Semua Kategori</option>
                         <option value="">Seminar</option>
                         <option value="">Pengabdian</option>
@@ -32,7 +32,7 @@
                         <option value="">Lainnya</option>
                     </select>
                     <p>|</p>
-                    <button class="size- px-4 py-1 bg-slate-400 rounded-[5px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.75)] inline-flex justify-center items-center gap-2.5 justify-start text-white text-base font-bold">Cari Event</button>
+                    <button class="size- px-4 py-1 bg-slate-400 rounded-[5px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.75)] inline-flex  items-center gap-2.5 justify-start text-white text-base font-bold active:bg-primary-200 cursor-pointer ">Cari Event</button>
                 </div>
             </form>
             <div class=" flex gap-[20px]">
@@ -41,7 +41,7 @@
                     <path d="M18.4411 0.47784C18.7851 0.796631 18.9859 1.23629 18.9993 1.70015C19.0127 2.16402 18.8376 2.6141 18.5125 2.95146L8.39482 13.4527C8.23084 13.6226 8.03379 13.7585 7.8153 13.8525C7.59682 13.9465 7.36134 13.9966 7.12277 13.9998C6.8842 14.0031 6.64738 13.9595 6.42631 13.8715C6.20523 13.7835 6.00439 13.653 5.83564 13.4877L0.479203 8.23707C0.163816 7.90529 -0.00788317 7.46646 0.00027817 7.01304C0.00843951 6.55962 0.195824 6.127 0.522955 5.80634C0.850085 5.48567 1.29142 5.30199 1.75398 5.29399C2.21654 5.28599 2.66421 5.45429 3.00268 5.76345L7.06166 9.73991L15.9176 0.547848C16.2429 0.210635 16.6914 0.0138295 17.1646 0.000701348C17.6378 -0.0124268 18.097 0.159198 18.4411 0.47784Z" fill="#40679F"/>
                     </svg>
                     <div class="justify-start text-black text-sm font-normal ">
-                        Berbagai Event
+                        Berbagai Event 
                     </div>
                 </div>
                 <div class=" px-4 py-2.5 bg-white rounded-2xl shadow-[0px_0px_8px_0px_rgba(64,103,159,0.50)] inline-flex  justify-center items-center gap-2.5 mt-[20px]">
@@ -62,8 +62,111 @@
                 </div>
             </div>
         </div>
-        <img src="/assets/Group7.png" alt="">
+        <img class=" w-[509px] h-[379px] rounded-[20px] shadow-[0px_0px_15px_0px_rgba(64,103,159,0.75)]" src="/assets/Group7.png" alt="">
     </div>
+
+    <div class=" px-[97px]">
+        
+
+        <div class=" flex gap-[80px]">
+            <div>
+                <div class="justify-start"><span class="text-black text-3xl font-bold">Apa itu </span><span class="text-gradient-mivent text-3xl font-bold ">Mivent?</span>
+                </div>
+                <p class=" mb-[12px]">
+                    Mivent adalah portal digital resmi yang memadukan seluruh informasi kegiatan akademik dan non-akademik di lingkungan Fakultas Matematika dan Ilmu Pengetahuan Alam. Dibangun untuk menyederhanakan akses mahasiswa terhadap seminar riset, olimpiade sains, workshop laboratorium, dan rekrutmen kepanitiaan ormawa.
+                </p>
+                <p class=" mb-[12px]">
+                    Melalui sistem ini, proses registrasi menjadi instan tanpa perlu pengisian data berulang. Setiap kegiatan yang kamu ikuti terhubung langsung dengan sistem verifikasi Dekanat, memastikan perolehan Poin Satuan Kredit Partisipasi (SKP) tervalidasi secara otomatis menuju transkrip kelulusan.
+                </p>
+                <p class=" mb-[12px]">
+                    Bagi lembaga mahasiswa dan ormawa, portal ini memudahkan publikasi kegiatan terpadu, pengelolaan absensi berbasis kode QR, dan penerbitan e-sertifikat digital terstandarisasi.
+                </p>
+
+            </div>
+            <div class=" w-[499px] h-[362px] px-4 py-5 bg-slate-50 rounded-[20px] shadow-[0px_0px_8px_0px_rgba(64,103,159,0.50)]    inline-flex flex-col justify-start items-start gap-2.5">
+                <div class=" w-[465px] h-[100px] bg-white rounded-[5px] shadow-[0px_0px_10px_0px_rgba(64,103,159,0.25)] flex  items-center gap-2.5 p-[18px]">
+                    <div class=" flex">
+                        <div class=" bg-primary-100 w-[78px] h-[78px] flex justify-center items-center rounded-[10px]">
+                            <svg class="" width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_603_12092)">
+                            <path d="M45 28.1255V45.0005H22.5V28.1255H28.125V22.5005H39.375V28.1255H45ZM30.9375 28.1255H36.5625V25.313H30.9375V28.1255ZM42.1875 36.563H39.375V39.3755H36.5625V36.563H30.9375V39.3755H28.125V36.563H25.3125V42.188H42.1875V36.563ZM42.1875 30.938H25.3125V33.7505H42.1875V30.938ZM34.3872 19.688C33.5962 18.7944 32.6587 18.106 31.5747 17.6226C30.4907 17.1392 29.3408 16.8902 28.125 16.8755C26.9531 16.8755 25.8618 17.0952 24.8511 17.5347C23.8403 17.9741 22.9468 18.5747 22.1704 19.3364C21.394 20.0982 20.7861 20.999 20.3467 22.0391C19.9072 23.0791 19.6875 24.1704 19.6875 25.313C19.6875 26.6607 19.3872 27.9277 18.7866 29.1143C18.186 30.3008 17.3364 31.2969 16.2378 32.1026C16.897 32.4395 17.5122 32.8277 18.0835 33.2671C18.6548 33.7066 19.1895 34.2046 19.6875 34.7612V42.188C19.6875 41.0308 19.4678 39.9395 19.0283 38.9141C18.5889 37.8887 17.9883 36.9951 17.2266 36.2334C16.4648 35.4717 15.564 34.8638 14.5239 34.4097C13.4839 33.9556 12.3926 33.7359 11.25 33.7505C10.0781 33.7505 8.98682 33.9702 7.97607 34.4097C6.96533 34.8491 6.07178 35.4497 5.29541 36.2114C4.51904 36.9732 3.91113 37.874 3.47168 38.9141C3.03223 39.9541 2.8125 41.0454 2.8125 42.188H0C0 41.1187 0.146484 40.086 0.439453 39.0899C0.732422 38.0938 1.1499 37.1489 1.69189 36.2554C2.23389 35.3618 2.89307 34.5708 3.66943 33.8823C4.4458 33.1939 5.31006 32.6006 6.26221 32.1026C5.17822 31.3115 4.33594 30.3228 3.73535 29.1362C3.13477 27.9497 2.82715 26.6753 2.8125 25.313C2.8125 24.1558 3.03223 23.0645 3.47168 22.0391C3.91113 21.0137 4.51172 20.1201 5.27344 19.3584C6.03516 18.5967 6.92871 17.9888 7.9541 17.5347C8.97949 17.0806 10.0781 16.8609 11.25 16.8755C12.5977 16.8755 13.8647 17.1758 15.0513 17.7764C16.2378 18.377 17.2339 19.2266 18.0396 20.3252C18.5962 19.2266 19.3066 18.2451 20.1709 17.3809C21.0352 16.5166 22.0239 15.7988 23.1372 15.2276C22.0532 14.4365 21.2109 13.4478 20.6104 12.2612C20.0098 11.0747 19.7021 9.80031 19.6875 8.438C19.6875 7.28078 19.9072 6.18947 20.3467 5.16408C20.7861 4.13869 21.3867 3.24513 22.1484 2.48341C22.9102 1.72169 23.8037 1.11378 24.8291 0.659683C25.8545 0.205582 26.9531 -0.0141449 28.125 0.00050354C29.2822 0.00050354 30.3735 0.22023 31.3989 0.659683C32.4243 1.09914 33.3179 1.69972 34.0796 2.46144C34.8413 3.22316 35.4492 4.12404 35.9033 5.16408C36.3574 6.20412 36.5771 7.29543 36.5625 8.438C36.5625 9.78566 36.2622 11.0527 35.6616 12.2393C35.061 13.4258 34.2114 14.4219 33.1128 15.2276C34.1089 15.7256 35.0098 16.3482 35.8154 17.0952C36.6211 17.8423 37.3022 18.7066 37.8589 19.688H34.3872ZM11.25 30.938C12.0264 30.938 12.7515 30.7915 13.4253 30.4986C14.0991 30.2056 14.6997 29.8027 15.2271 29.2901C15.7544 28.7774 16.1572 28.1841 16.4355 27.5103C16.7139 26.8364 16.8604 26.104 16.875 25.313C16.875 24.5366 16.7285 23.8115 16.4355 23.1377C16.1426 22.4639 15.7397 21.8633 15.2271 21.336C14.7144 20.8086 14.1211 20.4058 13.4473 20.1275C12.7734 19.8491 12.041 19.7027 11.25 19.688C10.4736 19.688 9.74854 19.8345 9.07471 20.1275C8.40088 20.4204 7.80029 20.8233 7.27295 21.336C6.74561 21.8486 6.34277 22.4419 6.06445 23.1157C5.78613 23.7896 5.63965 24.522 5.625 25.313C5.625 26.0894 5.77148 26.8145 6.06445 27.4883C6.35742 28.1621 6.76025 28.7627 7.27295 29.2901C7.78564 29.8174 8.37891 30.2202 9.05273 30.4986C9.72656 30.7769 10.459 30.9234 11.25 30.938ZM22.5 8.438C22.5 9.21437 22.6465 9.93947 22.9395 10.6133C23.2324 11.2871 23.6353 11.8877 24.1479 12.4151C24.6606 12.9424 25.2539 13.3452 25.9277 13.6236C26.6016 13.9019 27.334 14.0484 28.125 14.063C28.9014 14.063 29.6265 13.9165 30.3003 13.6236C30.9741 13.3306 31.5747 12.9277 32.1021 12.4151C32.6294 11.9024 33.0322 11.3091 33.3105 10.6353C33.5889 9.96144 33.7354 9.22902 33.75 8.438C33.75 7.66164 33.6035 6.93654 33.3105 6.26271C33.0176 5.58888 32.6147 4.9883 32.1021 4.46095C31.5894 3.93361 30.9961 3.53078 30.3223 3.25246C29.6484 2.97414 28.916 2.82765 28.125 2.813C27.3486 2.813 26.6235 2.95949 25.9497 3.25246C25.2759 3.54543 24.6753 3.94826 24.1479 4.46095C23.6206 4.97365 23.2178 5.56691 22.9395 6.24074C22.6611 6.91457 22.5146 7.64699 22.5 8.438Z" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_603_12092">
+                            <rect width="45" height="45" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+
+                            
+                        </div>
+                        
+                        <div class=" ml-[20px]">
+                            <h1 class=" text-primary-200 font-bold text-2xl">Temukan Event</h1>
+                            <p>Jelajahi kegiatan menarik sesuai minatmu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class=" w-[465px] h-[100px] bg-white rounded-[5px] shadow-[0px_0px_10px_0px_rgba(64,103,159,0.25)] flex  items-center gap-2.5 p-[18px]">
+
+                    <div class=" flex">
+                        <div class=" bg-primary-100 w-[78px] h-[78px] flex justify-center items-center rounded-[10px]">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_603_12101)">
+                            <path d="M18 6C18.3083 6.00013 18.609 6.09524 18.8613 6.27238C19.1136 6.44952 19.3052 6.70009 19.41 6.99L30 36.108L34.59 23.484C34.6958 23.1952 34.8878 22.9459 35.14 22.7699C35.3922 22.5939 35.6924 22.4997 36 22.5H46.5C46.8978 22.5 47.2794 22.658 47.5607 22.9393C47.842 23.2206 48 23.6022 48 24C48 24.3978 47.842 24.7794 47.5607 25.0607C47.2794 25.342 46.8978 25.5 46.5 25.5H37.05L31.41 41.01C31.3049 41.2996 31.1132 41.5498 30.8609 41.7266C30.6086 41.9034 30.3081 41.9982 30 41.9982C29.6919 41.9982 29.3914 41.9034 29.1391 41.7266C28.8868 41.5498 28.6951 41.2996 28.59 41.01L18 11.892L13.41 24.513C13.3047 24.8023 13.1129 25.0523 12.8606 25.2288C12.6084 25.4054 12.3079 25.5001 12 25.5H1.5C1.10218 25.5 0.720644 25.342 0.43934 25.0607C0.158035 24.7794 0 24.3978 0 24C0 23.6022 0.158035 23.2206 0.43934 22.9393C0.720644 22.658 1.10218 22.5 1.5 22.5H10.95L16.59 6.99C16.6948 6.70009 16.8864 6.44952 17.1387 6.27238C17.391 6.09524 17.6917 6.00013 18 6Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_603_12101">
+                            <rect width="48" height="48" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+
+
+                        </div>
+
+                        <div class="ml-[20px]">
+                            <h1 class=" text-primary-200 font-bold text-2xl">Daftar Kegiatan</h1>
+                            <p>Daftar kegiatan pilihan dengan mudah dan cepat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" w-[465px] h-[100px] bg-white rounded-[5px] shadow-[0px_0px_10px_0px_rgba(64,103,159,0.25)] flex  items-center gap-2.5 p-[18px]">
+
+                    <div class=" flex">
+                        <div class=" bg-primary-100 w-[78px] h-[78px] flex justify-center items-center rounded-[10px]">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_603_12110)">
+                            <path d="M9.33301 16H31.9997V18.1333H9.33301V16Z" fill="white"/>
+                            <path d="M9.33301 21.334H23.9997V23.4673H9.33301V21.334Z" fill="white"/>
+                            <path d="M9.33301 30.666H22.6663V32.7993H9.33301V30.666Z" fill="white"/>
+                            <path d="M36.6137 22.9729C34.9075 22.9594 33.2369 23.4609 31.8202 24.4118C30.4035 25.3628 29.3066 26.719 28.6729 28.3033C28.0392 29.8875 27.8982 31.6261 28.2682 33.2917C28.6383 34.9574 29.5022 36.4727 30.7471 37.6396L28.1604 40.7996L29.3604 45.6129L34.2404 39.6663C35.7851 40.123 37.429 40.123 38.9737 39.6663L43.8537 45.6129L45.0537 40.7996L42.4671 37.6396C43.712 36.4727 44.5759 34.9574 44.9459 33.2917C45.316 31.6261 45.1749 29.8875 44.5412 28.3033C43.9075 26.719 42.8107 25.3628 41.394 24.4118C39.9773 23.4609 38.3066 22.9594 36.6004 22.9729H36.6137ZM36.6137 37.2129C35.4807 37.1971 34.3776 36.8468 33.4432 36.2058C32.5087 35.5648 31.7846 34.6619 31.3619 33.6105C30.9392 32.5592 30.8367 31.4063 31.0674 30.2969C31.2981 29.1875 31.8516 28.171 32.6584 27.3753C33.4652 26.5796 34.4892 26.0402 35.6017 25.8249C36.7142 25.6095 37.8656 25.7279 38.911 26.1651C39.9564 26.6023 40.8492 27.3388 41.4772 28.2821C42.1052 29.2253 42.4403 30.3331 42.4404 31.4663C42.4263 32.9999 41.8054 34.4655 40.7134 35.5425C39.6215 36.6194 38.1474 37.22 36.6137 37.2129Z" fill="white"/>
+                            <path d="M42.667 17.6275V22.0808C43.6801 22.7363 44.5806 23.5513 45.3337 24.4941V16.4941C44.5045 16.9994 43.6062 17.3812 42.667 17.6275Z" fill="white"/>
+                            <path d="M5.33366 37.3333V10.6667H30.3737C30.1296 9.79867 30.004 8.90165 30.0003 8H5.33366C4.62641 8 3.94814 8.28095 3.44804 8.78105C2.94794 9.28115 2.66699 9.95942 2.66699 10.6667V37.3333C2.66699 38.0406 2.94794 38.7189 3.44804 39.219C3.94814 39.719 4.62641 40 5.33366 40H25.3337L26.0937 39.0667L27.3337 37.5467L27.2137 37.3333H5.33366Z" fill="white"/>
+                            <path d="M39.9997 14.6673C43.6816 14.6673 46.6663 11.6825 46.6663 8.00065C46.6663 4.31875 43.6816 1.33398 39.9997 1.33398C36.3178 1.33398 33.333 4.31875 33.333 8.00065C33.333 11.6825 36.3178 14.6673 39.9997 14.6673Z" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_603_12110">
+                            <rect width="48" height="48" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+
+
+                        </div>
+
+                        <div class="ml-[20px]">
+                            <h1 class=" text-primary-200 font-bold text-2xl">Pantau Sertifikat</h1>
+                            <p>Pantau SKP dan sertifikat kegiatanmu dalam satu portal.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
