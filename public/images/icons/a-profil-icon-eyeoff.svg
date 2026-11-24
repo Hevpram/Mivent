@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon/eyeoff" clip-path="url(#clip0_0_13)">
+<path id="Vector" d="M11.96 11.96C10.822 12.8316 9.43332 13.3132 8 13.3333C3.33333 13.3333 0.666666 8 0.666666 8C1.48803 6.44922 2.63953 5.09747 4.04 4.04M6.6 2.82667C7.05876 2.71853 7.52867 2.66483 8 2.66667C12.6667 2.66667 15.3333 8 15.3333 8C14.9308 8.75836 14.448 9.47133 13.8933 10.1267" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" stroke="#9AAAB8"/>
+<path id="Vector_2" d="M0.666666 0.666666L15.3333 15.3333" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" stroke="#9AAAB8"/>
+</g>
+<defs>
+<clipPath id="clip0_0_13">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

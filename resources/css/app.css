@@ -1,61 +1,258 @@
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
-
+/* Tambahan: class Tailwind yang ditulis di file JS juga ikut di-scan */
+@source '../js';
 
 @theme {
-    --font-sans: 'Poppins', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Poppins', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-poppins: 'Poppins', sans-serif;
-
     --color-background : #EAF0F6;
     --color-primary-200 : #40679F;
     --color-primary-150 : #7C9CBF;
     --color-primary-100 : #ABC9E9;
     --color-primary-50 : #F8FAFC;
-    
     --color-green-50 : #EBF7EF;
     --color-green-100 : #86C99A;
     --color-green-150 : #3D7A52;
-    
     --color-blue-50 : #EDF4FB;
-    
     --color-gray-50 : #E4E8EF;
     --color-gray-100 : #9CA3AF;
-    
     --color-red-50 : #FCEEEE;
     --color-red-100 : #A04040;
-
     --color-yellow-50 : #FDF8E8;
     --color-yellow-100 : #E8C87A;
-
 }
 
-@utility text-gradient-mivent { /*cara manggil : text-gradient-mivent*/
-    background-image: radial-gradient(
-        ellipse at center,
-        #ABC9E9 0%,
-        #40679F 100%
-    );
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+@utility text-gradient-mivent {
+    background-image: radial-gradient(ellipse at center, #ABC9E9 0%, #40679F 100%);
+    background-size: 100% 100%; background-repeat: no-repeat;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
 }
 
 @layer components {
+    /* Input halaman auth (Figma: Login — 54px, border abu, bayangan biru) */
+    .input-auth { @apply w-full rounded-[6px] border border-gray-100 bg-white px-5 py-[14px] text-base text-black drop-shadow-[0_0_4px_rgba(64,103,159,0.25)] transition placeholder:text-gray-100 focus:border-primary-200 focus:outline-none; }
+    /* Tombol navigasi langkah (Figma: Kembali / Lanjut) */
+    /* Tombol navigasi langkah (Figma: "Kembali ke Detail Event" / "Lanjut ke Berkas & Posisi") */
+    .btn-outline-nav { @apply inline-flex items-center justify-center gap-[18px] rounded-[6px] border border-primary-150 px-8 py-2 text-base font-bold text-primary-150 shadow-[0_0_8px_rgba(64,103,159,0.75)] transition-all duration-300 hover:bg-blue-50; }
+    .btn-fill-nav { @apply inline-flex items-center justify-center gap-[18px] rounded-[6px] bg-primary-150 px-6 py-2 text-base font-bold text-white drop-shadow-[0_0_4px_rgba(64,103,159,0.75)] transition-all duration-300 hover:bg-primary-200; }
+
     .navbar_textIn {
         @apply relative transition-all duration-300 hover:text-primary-200
             after:content-[''] after:absolute after:left-0 after:-bottom-1
             after:h-[1.5px] after:w-0 after:bg-primary-200
             after:transition-all after:duration-300 hover:after:w-full;
     }
+    .navbar_textIn_white { @apply hover:text-white after:bg-white; }
+    /* Navbar biru (setelah scroll): item aktif & hover tetap putih */
+    .navbar_textIn.navbar_textIn_white.is-active { @apply text-white after:bg-white; }
+}
 
-    .navbar_textIn_white {
-        @apply hover:text-white after:bg-white;
+/* ================================================================
+   TAMBAHAN (utility & komponen saja, tanpa warna baru)
+   ================================================================ */
+/* Dasar tombol (dipakai .btn-primary, .btn-outline, dst.) */
+@utility btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+@utility btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-md;
+}
+
+/* Bayangan kartu ala Figma (biru lembut) */
+@utility shadow-card {
+    box-shadow: 0 4px 12px 0 rgba(64, 103, 159, 0.25);
+}
+
+@layer base {
+    body {
+        @apply font-poppins text-black bg-background;
     }
+    button, [role='button'] {
+        cursor: pointer;
+    }
+    [hidden] {
+        display: none !important;
+    }
+}
+
+@layer components {
+    .navbar_textIn.is-active {
+        @apply text-primary-200 after:w-full;
+    }
+
+    /* Kartu putih dengan border & bayangan */
+    .card {
+        @apply bg-primary-50 rounded-[20px] shadow-[0_0_15px_rgba(64,103,159,0.50)];
+    }
+
+    /* Form */
+    .label {
+        @apply block text-sm font-medium mb-1.5;
+    }
+    .req {
+        @apply text-red-100;
+    }
+    .input {
+        @apply w-full rounded-lg border border-gray-100 bg-white px-3 py-2.5 text-sm placeholder:text-gray-100
+            shadow-[0_0_8px_rgba(64,103,159,0.25)] transition-all duration-100
+            focus:outline-none focus:border-primary-200 focus:border-2 focus:shadow-[0_0_8px_rgba(64,103,159,0.5)];
+    }
+    .input[readonly], .input:disabled {
+        @apply bg-gray-50 text-black cursor-not-allowed;
+    }
+    .input.is-invalid {
+        @apply border-red-100 shadow-[0_0_8px_rgba(160,64,64,0.25)];
+    }
+    .field-error {
+        @apply mt-1 text-xs text-red-100;
+    }
+    .hint {
+        @apply mt-1 text-xs text-black/70;
+    }
+
+    /* Tombol */
+    .btn-primary {
+        @apply btn bg-primary-200 text-white transition-all duration-300 hover:bg-primary-150 shadow-card;
+    }
+    .btn-soft {
+        @apply btn bg-primary-150 text-white transition-all duration-300 hover:bg-primary-200;
+    }
+    .btn-outline {
+        @apply btn border-2 border-primary-200 text-primary-200 bg-white transition-all duration-300 hover:bg-primary-200 hover:text-white;
+    }
+    .btn-danger {
+        @apply btn bg-red-100 text-white transition-all duration-300 hover:opacity-85;
+    }
+    .btn-success {
+        @apply btn bg-green-150 text-white transition-all duration-300 hover:opacity-85;
+    }
+
+    /* Badge status */
+    .badge {
+        @apply inline-flex items-center justify-center rounded border px-2.5 py-1 text-xs font-medium whitespace-nowrap;
+    }
+
+    /* Tabel admin */
+    .table-mivent {
+        @apply w-full text-sm;
+    }
+    .table-mivent thead th {
+        @apply bg-primary-200 text-white font-semibold px-4 py-3 text-center;
+    }
+    .table-mivent tbody td {
+        @apply px-4 py-3 border-b border-primary-100 align-middle;
+    }
+    /* Kartu putih kecil (item list) */
+    .card-white {
+        @apply bg-white rounded-xl border border-primary-100 shadow-[0_0_8px_rgba(64,103,159,0.25)];
+    }
+    /* Opsi dropdown / checkbox list */
+    .opt {
+        @apply flex cursor-pointer items-center gap-2 px-3 py-2 text-sm transition hover:bg-blue-50 has-[:checked]:bg-primary-50;
+    }
+    /* Tombol ikon hapus */
+    .icon-del {
+        @apply text-gray-100 transition hover:text-red-100;
+    }
+    /* Tombol putih ber-bayangan */
+    .btn-white {
+        @apply btn bg-white text-primary-200 shadow-[0_0_8px_rgba(64,103,159,0.35)] transition duration-300 hover:bg-primary-200 hover:text-white;
+    }
+    /* Tab */
+    .tab {
+        @apply px-4 py-2 text-sm font-medium text-gray-100 border-b-2 border-transparent transition hover:text-primary-200;
+    }
+    .tab.is-active {
+        @apply text-primary-200 border-primary-200;
+    }
+    /* Tab pil (Figma: Status Kepanitiaan — Proses Seleksi / Hasil Seleksi / Sertifikat) */
+    .tab-pill {
+        @apply flex items-center justify-center rounded-[5px] px-4 py-1 text-base text-gray-100 transition-all duration-300 hover:text-primary-200;
+    }
+    .tab-pill.is-active {
+        @apply rounded-[10px] bg-white text-black;
+    }
+    .table-mivent tbody tr:hover {
+        @apply bg-blue-50;
+    }
+
+    /* Sidebar admin */
+    /* Menu sidebar admin (Figma Frame 4209 / 4211) */
+    .side-link {
+        @apply relative flex h-8 w-[198px] items-center gap-3 rounded-[5px] px-2 text-sm font-medium leading-5 text-gray-100 transition-all duration-300 hover:bg-primary-50 hover:text-primary-200;
+    }
+    .side-link.is-active {
+        @apply bg-primary-50 text-primary-200 shadow-[2px_0_0_0_var(--color-primary-200)];
+    }
+
+    /* Isi rich text (deskripsi event) */
+    .prose-mivent p { @apply mb-3; }
+    .prose-mivent ul { @apply list-disc pl-6 mb-3; }
+    .prose-mivent ol { @apply list-decimal pl-6 mb-3; }
+    .prose-mivent a { @apply text-primary-200 underline; }
+    .prose-mivent blockquote { @apply border-l-4 border-primary-100 pl-3 italic mb-3; }
+    .prose-mivent pre, .prose-mivent code { @apply bg-gray-50 rounded px-1 font-mono text-xs; }
+}
+
+/* ===== Kalender rentang tanggal (resources/js/daterange.js) ===== */
+.dr-panel {
+    @apply absolute z-50 mt-2 w-72 rounded-xl border border-primary-100 bg-white p-3 shadow-card;
+}
+.dr-day {
+    @apply h-8 w-full rounded text-xs hover:bg-primary-100;
+}
+.dr-day.is-in-range { @apply bg-blue-50 text-primary-200; }
+.dr-day.is-edge { @apply bg-primary-200 text-white; }
+.dr-day.is-muted { @apply text-gray-100; }
+
+/* Drop zone upload */
+.dropzone.is-dragover {
+    @apply border-primary-200 bg-blue-50;
+}
+
+
+
+/* ===== Animasi masuk "domino" (resources/js/domino.js) =====
+   Elemen ber-atribut data-domino geser dari kiri ke kanan satu per satu. */
+@media (scripting: enabled) {
+    [data-domino] {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity 600ms cubic-bezier(.22, .61, .36, 1), transform 600ms cubic-bezier(.22, .61, .36, 1);
+        transition-delay: var(--domino-delay, 0ms);
+    }
+    [data-domino].is-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== Toast (resources/js/toast.js) ===== */
+[data-toast] {
+    animation: toast-in 250ms ease-out;
+}
+[data-toast].is-leaving {
+    animation: toast-out 220ms ease-in forwards;
+}
+[data-toast-bar] {
+    transform-origin: left center;
+    animation: toast-bar var(--toast-duration, 5000ms) linear forwards;
+}
+[data-toast]:hover [data-toast-bar] {
+    animation-play-state: paused;
+}
+@keyframes toast-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+@keyframes toast-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(24px); } }
+@keyframes toast-bar { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* Hormati pengguna yang mematikan animasi */
+@media (prefers-reduced-motion: reduce) {
+    [data-domino] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    [data-toast], [data-toast].is-leaving, [data-toast-bar] { animation: none; }
 }

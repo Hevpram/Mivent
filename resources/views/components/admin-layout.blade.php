@@ -1,0 +1,39 @@
+{{-- Layout admin: sidebar & navbar dipilih otomatis sesuai role (Ormawa / FMIPA) --}}
+@props(['title' => 'Dashboard'])
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ auth()->user()->isFmipa() ? 'Mivent Admin' : 'Mivent' }} | {{ $title }}</title>
+    <link rel="icon" href="{{ asset('mivent_assets/logoColor.png') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{ $head ?? '' }}
+</head>
+<body class="bg-white bg-[linear-gradient(to_bottom,var(--color-background)_0,var(--color-background)_709px,white_809px)] font-poppins text-black antialiased">
+    @if (auth()->user()->isFmipa())
+        <x-fmipa-sidebar />
+    @else
+        <x-ormawa-sidebar />
+    @endif
+
+    <div class="ml-[249px] flex min-h-screen flex-col">
+        @if (auth()->user()->isFmipa())
+            <x-fmipa-navbar />
+        @else
+            <x-ormawa-navbar />
+        @endif
+
+        <main class="flex-1 px-[73px] pb-[60px] pt-[67px]">
+            {{ $slot }}
+        </main>
+
+        <x-admin-footer />
+
+    </div>
+
+    <x-toast />
+    {{ $scripts ?? '' }}
+</body>
+</html>
