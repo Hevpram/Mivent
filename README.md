@@ -1,58 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Mivent — Sistem Informasi Event Mahasiswa FMIPA Universitas Udayana
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Mivent adalah aplikasi web untuk mencari, mendaftar, dan mengelola event kemahasiswaan (kepanitiaan & peserta) di lingkungan FMIPA Universitas Udayana.
+Dibangun dengan **Laravel 13**, **Tailwind CSS v4**, dan JavaScript vanilla.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Role | Fitur |
+|---|---|
+| Tamu | Beranda, jelajahi & filter event, detail event, FAQ, registrasi + verifikasi email (OTP), login, lupa password (OTP) |
+| Mahasiswa | Daftar sebagai Panitia (maks. 2 sie + berkas) / Peserta (berkas syarat), Event Diikuti (status, perbaikan berkas, bukti PDF, sertifikat), notifikasi, kelola akun & sertifikat profil |
+| Admin Ormawa | Dashboard, ajukan event (3 langkah, Penyelenggara **dan** Peran wajib), revisi pengajuan, kelola pendaftar: seleksi berkas → wawancara (panitia) → selesai, ekspor Excel, unduh .zip berkas, upload sertifikat |
+| Admin FMIPA | Dashboard, verifikasi event (setujui + SKP / revisi), **buat event sendiri yang langsung tayang**, kelola akun ormawa |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Kebutuhan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Laragon](https://laragon.org/) (Windows) dengan **PHP ≥ 8.3**, **MySQL/MariaDB**, Composer
+- **Node.js ≥ 20** dan npm
+- Ekstensi PHP: `pdo_mysql`, `mbstring`, `fileinfo`, `gd`, `zip` (aktifkan lewat *Menu Laragon → PHP → Extensions*)
 
-## Learning Laravel
+## Instalasi Lokal (Laragon)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Ekstrak folder `Mivent` ke `C:\laragon\www\Mivent`, lalu klik **Start All** di Laragon.
+2. Buka **Terminal** Laragon di folder proyek:
+   ```bash
+   cd C:\laragon\www\Mivent
+   composer install
+   npm install
+   copy .env.example .env
+   php artisan key:generate
+   ```
+3. Buat database `mivent` (Laragon → *Database* / HeidiSQL, atau `mysql -u root -e "CREATE DATABASE mivent"`).
+   Sesuaikan `DB_*` di `.env` bila user/password MySQL berbeda (default Laragon: `root` tanpa password).
+4. Migrasi + data contoh, lalu tautkan folder upload:
+   ```bash
+   php artisan migrate --seed
+   php artisan storage:link
+   ```
+5. Build aset dan jalankan:
+   ```bash
+   npm run build
+   php artisan serve
+   ```
+   Buka http://127.0.0.1:8000 (atau http://mivent.test bila memakai virtual host otomatis Laragon — samakan `APP_URL` di `.env`).
+   Saat mengembangkan tampilan, gunakan `npm run dev` agar CSS/JS ter-*reload* otomatis.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Akun Demo
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Semua akun memakai password **`Mivent@123`**. Login bisa dengan NIM, ID (username), atau email.
 
-## Agentic Development
+| Role | Login |
+|---|---|
+| Mahasiswa | `2508561093` / `mahasiswa@mivent.test` |
+| Mahasiswa 2 | `2508561001` / `ayu@mivent.test` |
+| Admin Ormawa (BEM FMIPA) | `bemfmipa` / `bem@mivent.test` |
+| Admin Ormawa (SIC) | `sic` / `sic@mivent.test` |
+| Admin FMIPA | `fmipa@mivent.test` |
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Email (Kode OTP)
+
+Default `MAIL_MAILER=log`: email tidak dikirim, isinya tercatat di `storage/logs/laravel.log`, dan selama `APP_DEBUG=true` kode OTP juga ditampilkan di halaman verifikasi agar mudah dicoba.
+Untuk mengirim email sungguhan, isi `MAIL_MAILER=smtp` beserta `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD` (mis. Gmail App Password atau Mailtrap). Jika pengiriman gagal, aplikasi tidak error — pengguna diminta menekan *Kirim Ulang*.
+
+## Pengujian
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+php artisan test
 ```
+Test memakai SQLite in-memory (lihat `phpunit.xml`), jadi tidak menyentuh database MySQL Anda. Diperlukan ekstensi `pdo_sqlite` (sudah aktif di Laragon).
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Struktur Singkat
 
-## Contributing
+- `app/Http/Controllers` — controller publik, auth, mahasiswa, dan `Admin/*`
+- `resources/views` — Blade (`components/`, `partials/`, `admin/`, `auth/`, `errors/`, `pdf/`, `emails/`)
+- `resources/js` — modul `ui.js`, `event-form.js`, `password.js`, `toast.js`, `domino.js`
+- `resources/css/app.css` — tema warna & komponen Tailwind
+- `tests/Feature` — feature test seluruh alur
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Pemecahan Masalah
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Gambar upload tidak tampil** → jalankan `php artisan storage:link` dan pastikan `APP_URL` sesuai alamat yang dibuka.
+- **Tampilan polos tanpa CSS** → jalankan `npm run build` (atau `npm run dev`).
+- **`could not find driver`** → aktifkan ekstensi `pdo_mysql` di Laragon.
+- **Halaman 419** → sesi kedaluwarsa; muat ulang halaman lalu kirim ulang formulir.

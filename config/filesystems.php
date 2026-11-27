@@ -16,6 +16,12 @@ return [
     'default' => env('FILESYSTEM_DISK', 'local'),
 
     /*
+    | Disk untuk file upload Mivent (poster, SIK, berkas, sertifikat, SK).
+    | Lokal (Laragon): public -> storage/app/public, jalankan `php artisan storage:link`.
+    */
+    'uploads' => env('UPLOAD_DISK', 'public'),
+
+    /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
